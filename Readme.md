@@ -1,35 +1,29 @@
-## Project Structure
+# 🛠 Requirements
+Node.js and npm installed
 
-Dockerfile               # Docker build configuration  
-docker-compose.yml       # Compose service definition  
-index.js                 # Express app  
-package.json             # Dependencies
+Docker installed
 
-## Docker Instructions
+Minikube installed (local Kubernetes cluster)
 
-1. Clone the project
+kubectl installed (Kubernetes CLI)
 
-git clone https://github.com/hepeilin0710/sit323-2025-prac5p.git  
-cd 5.1P
+Docker Hub account (for pushing images)
 
-2. Build the Docker image
+# 🚀 Kubernetes Deployment Full Steps
 
-docker build -t my-web-app .
+# 1. Start Minikube
+minikube start
 
-3. Run with Docker Compose
+# 2. Apply Deployment
+kubectl apply -f deployment.yaml
 
-docker-compose up
+# 3. Apply Service
+kubectl apply -f service.yaml
 
-The service will run at http://localhost:3000
+# 4. Verify Pods
+kubectl get pods
 
-4. Test the API using Postman
-
-Example (POST /add):
-
-curl -X POST http://localhost:3000/add -H "Content-Type: application/json" -d '{"num1": 10, "num2": 5}'
-
-5. Push image to Docker Hub 
-
-docker login  
-docker tag my-web-app ygyunge/my-web-app  
-docker push ygyunge/my-web-app
+# 5. Verify Services
+kubectl get services
+# Auto-open Browser
+minikube service nodejs-service
